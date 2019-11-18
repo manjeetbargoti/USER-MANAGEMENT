@@ -11,15 +11,16 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
 Auth::routes();
 
-Route::get('/admin/dashboard', 'HomeController@index')->name('dashboard');
-Route::group(['middleware'=>'role:Super Admin'],function(){
-    Route::resource('admin/permission', 'Admin\\PermissionController');
-    Route::resource('admin/role', 'Admin\\RoleController');
+Route::get('/admin/dashboard', 'AdminController@dashboard')->name('dashboard');
+
+Route::group(['middleware'=>'role:Super Admin','auth'],function(){
+    Route::resource('admin/user/permission', 'Admin\\PermissionController');
+    Route::resource('admin/user/role', 'Admin\\RoleController');
     Route::resource('admin/user', 'Admin\\UserController');
 });
+
+Route::match(['get','post'], '/user/register', 'Admin\UserController@registerUser');
+
+Route::match(['get','post'], '/', 'HomeController@index')->name('homepage');

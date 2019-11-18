@@ -5,7 +5,7 @@
     <nav class="navbar navbar-static-top">
         <div class="container-fluid m-0">
             <a class="navbar-brand mr-0" href="index.html">
-                <h4 class="text-white"><img src="{{ asset('admin/img/logow.png') }}" class="admin_img" alt="logo"> ADMIRE ADMIN</h4>
+                <h4 class="text-white"><img src="{{ asset('admin/img/logow.png') }}" class="admin_img" alt="logo"> {{ config('app.name') }}</h4>
             </a>
             <div class="menu mr-sm-auto">
                 <span class="toggle-left" id="menu-toggle">
@@ -15,23 +15,23 @@
             <div class="navbar-toggleable-sm m-lg-auto d-none d-lg-flex top_menu" id="nav-content">
                 <ul class="nav navbar-nav flex-row top_menubar">
                     <li class="nav-item">
-                        <a class="nav-link text-white" href="mail_inbox.html">
-                            <i class="fa fa-inbox"></i> <span class="quick_text">Inbox</span>
+                        <a class="nav-link text-white" href="#">
+                            <i class="fa fa-inbox"></i> <span class="quick_text">Dashboard</span>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-white" href="mail_compose.html">
-                            <i class="fa fa fa-edit"></i> <span class="quick_text">Compose</span>
+                        <a class="nav-link text-white" href="#">
+                            <i class="fa fa fa-edit"></i> <span class="quick_text">Users</span>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-white" href="maps.html">
-                            <i class="fa fa-map-marker"></i> <span class="quick_text">Maps</span>
+                        <a class="nav-link text-white" href="#">
+                            <i class="fa fa-map-marker"></i> <span class="quick_text">Roles</span>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-white" href="gallery.html">
-                            <i class="fa fa-picture-o"></i> <span class="quick_text">Gallery</span>
+                        <a class="nav-link text-white" href="#">
+                            <i class="fa fa-picture-o"></i> <span class="quick_text">Permissions</span>
                         </a>
                     </li>
                 </ul>
@@ -297,19 +297,19 @@
                     <div class="user-settings no-bg">
                         <button type="button" class="btn btn-default no-bg micheal_btn" data-toggle="dropdown">
                             <img src="{{ asset('admin/img/admin.jpg') }}" class="admin_img2 rounded-circle avatar-img" alt="avatar">
-                            <strong>{{ Auth::user()->name }}</strong>
+                            <strong>{{ Auth::user()->first_name }}</strong>
                             <span class="fa fa-sort-down white_bg"></span>
                         </button>
                         <div class="dropdown-menu admire_admin">
-                            <div class="popover-header">Admire Admin</div>
-                            <a class="dropdown-item" href="edit_user.html"><i class="fa fa-cogs"></i>
+                            <div class="popover-header">{{ config('app.name') }}</div>
+                            <a class="dropdown-item" href="#"><i class="fa fa-cogs"></i>
                                 Account Settings</a>
                             <a class="dropdown-item" href="#">
                                 <i class="fa fa-user"></i> User Status
                             </a>
-                            <a class="dropdown-item" href="mail_inbox.html"><i class="fa fa-envelope"></i>
+                            <a class="dropdown-item" href="#"><i class="fa fa-envelope"></i>
                                 Inbox</a>
-                            <a class="dropdown-item" href="lockscreen.html"><i class="fa fa-lock"></i>
+                            <a class="dropdown-item" href="#"><i class="fa fa-lock"></i>
                                 Lock Screen</a>
                             <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();"><i class="fa fa-sign-out"></i>

@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'name' => env('APP_NAME', 'User Managemt'),
+    'name' => env('APP_NAME', 'LPP GLOBAL'),
 
     /*
     |--------------------------------------------------------------------------

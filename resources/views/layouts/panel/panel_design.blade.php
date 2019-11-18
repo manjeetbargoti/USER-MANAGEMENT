@@ -22,9 +22,14 @@
     <!-- end of global styles-->
     <link rel="stylesheet" href="{{ asset('admin/vendors/c3/css/c3.min.css') }}" />
     <link rel="stylesheet" href="{{ asset('admin/vendors/toastr/css/toastr.min.css') }}" />
+    <link rel="stylesheet" href="{{ asset('admin/vendors/izitoast/css/iziToast.min.css') }}" />
     <link rel="stylesheet" href="{{ asset('admin/vendors/switchery/css/switchery.min.css') }}" />
     <link rel="stylesheet" href="{{ asset('admin/css/pages/new_dashboard.css') }}" />
     <link rel="stylesheet" href="#" id="skin_change" />
+    <!-- /.End of Global Styles -->
+    <!-- Login Page Style -->
+   
+    <!-- /.End of login page style -->
 </head>
 <body>
 
@@ -93,6 +98,8 @@
     <script src="{{ asset('admin/vendors/countUp.js/js/countUp.min.js') }}"></script>
     <!--end of plugin scripts-->
     <script src="{{ asset('admin/js/pages/new_dashboard.js') }}"></script>
+    <script src="{{ asset('admin/vendors/izitoast/js/iziToast.min.js') }}"></script>
+    <script src="{{ asset('admin/js/pages/izi_toastr.js') }}"></script>
 
     </body>
 </html>

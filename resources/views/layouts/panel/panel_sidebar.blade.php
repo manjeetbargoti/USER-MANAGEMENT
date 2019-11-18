@@ -10,9 +10,9 @@
                     <a class="user-link" href="#">
                         <img class="media-object img-thumbnail user-img rounded-circle admin_img3" alt="User Picture"
                             src="{{ asset('admin/img/admin.jpg') }}">
-                        <p class="text-white user-info">{{ Auth::user()->name }}</p>
+                        <p class="text-white user-info">{{ Auth::user()->first_name }}</p>
                     </a>
-                    <div class="search_bar col-lg-12">
+                    <!-- <div class="search_bar col-lg-12">
                         <div class="input-group">
                             <input type="search" class="form-control " placeholder="search">
                             <span class="input-group-btn">
@@ -20,36 +20,36 @@
                                     </span></button>
                             </span>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
             </div>
             <!-- #menu -->
             <ul id="menu">
-                <li>
+                <li class="{{ (request()->is('admin/dashboard')) ? 'active':'' }}">
                     <a href="{{ route('dashboard') }}">
                         <i class="fa fa-home"></i>
                         <span class="link-title menu_hide">&nbsp;Dashboard</span>
                     </a>
                 </li>
-                <li class="dropdown_menu">
-                    <a href="javascript:void(0);">
-                        <i class="fa fa-anchor"></i>
+                <li class="dropdown_menu {{ (request()->is('admin/user*')) ? 'active':'' }}">
+                    <a href="{{ url('/admin/user') }}">
+                        <i class="fa fa-users"></i>
                         <span class="link-title menu_hide">&nbsp; User Management</span>
                         <span class="fa arrow menu_hide"></span>
                     </a>
                     <ul>
-                        <li>
+                        <li class="{{ (request()->is('admin/user')) ? 'active':'' }}">
                             <a href="{{ url('admin/user') }}">
                                 <i class="fa fa-angle-right"></i> &nbsp; Users
                             </a>
                         </li>
-                        <li>
-                            <a href="{{ url('admin/role') }}">
+                        <li class="{{ (request()->is('admin/user/role')) ? 'active':'' }}">
+                            <a href="{{ url('admin/user/role') }}">
                                 <i class="fa fa-angle-right"></i> &nbsp; User Roles
                             </a>
                         </li>
-                        <li>
-                            <a href="{{ url('admin/permission') }}">
+                        <li class="{{ (request()->is('admin/user/permission')) ? 'active':'' }}">
+                            <a href="{{ url('admin/user/permission') }}">
                                 <i class="fa fa-angle-right"></i>
                                 <span class="link-title"> &nbsp; User Permissions</span>
                             </a>

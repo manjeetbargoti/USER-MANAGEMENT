@@ -51,11 +51,11 @@ class UserController extends Controller
     public function store(Request $request)
     {
         
-        // $requestData = $request->all();
-        $requestData = $request->except('roles');
+        $requestData = $request->all();
+        // $requestData = $request->except('roles');
         $roles = $request->roles;
 
-        // dd($requestData);
+        dd($requestData);
         
         $user = User::create($requestData);
         $user->assignRole($roles);
@@ -126,5 +126,25 @@ class UserController extends Controller
         User::destroy($id);
 
         return redirect('admin/user')->with('flash_message', 'User deleted!');
+    }
+
+
+    public function registerUser(Request $request)
+    {
+        
+        if($request->isMethod('post')){
+
+            // $requestData = $request->all();
+            $requestData = $request->except('roles');
+            $roles = $request->roles;
+
+            // dd($requestData);
+            
+            $user = User::create($requestData);
+            $user->assignRole($roles);
+
+            return redirect('/register')->with('flash_message', 'User added!');
+        }
+
     }
 }

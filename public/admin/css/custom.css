@@ -131,7 +131,7 @@ button, .btn {
 #top .navbar {
   padding: 0;
   margin-bottom: 0;
-  background: #4E4C4C; }
+  background: #02165d; }
 
 #top .topnav {
   padding: 0 !important;
@@ -170,7 +170,7 @@ button, .btn {
   background: #7a7a7a; }
 
 #menu > li.active {
-  background: #ff8080 !important; }
+  background: #02165d !important; }
 
 #menu li.active a {
   color: #fff; }
@@ -180,7 +180,7 @@ button, .btn {
 
 #menu li.active ul li.active > a {
   color: #fff;
-  background-color: #ff8080; }
+  background-color: #9e7537; }
 
 #menu li:hover {
   background: #3a3a3a; }
@@ -229,7 +229,7 @@ button, .btn {
   margin-right: 10px; }
 
 #top .nav > li:hover, #top .nav > li:focus {
-  background: #ff8080;
+  background: #9e7537;
   color: #fff; }
 
 #top .nav > li > a:hover, #top .nav > li > a:focus {
@@ -239,12 +239,12 @@ button, .btn {
   color: #fff; }
 
 #menu li a {
-  padding: 15px 8px 15px 15px;
+  padding: 10px 10px 10px 15px;
   border-bottom: none;
   color: #fff; }
 
 #menu li ul li a {
-  padding: 10px 8px 10px 30px; }
+  padding: 5px 10px 5px 30px; }
 
 #menu li ul li .sub-menu1 li a {
   padding-left: 45px; }

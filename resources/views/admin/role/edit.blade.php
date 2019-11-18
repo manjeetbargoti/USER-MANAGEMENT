@@ -20,7 +20,7 @@
                 <div class="card">
                     <div class="card-header">Edit Role {{ $role->name }}</div>
                     <div class="card-body">
-                        <a href="{{ url('/admin/role') }}" title="Back"><button class="btn btn-warning btn-sm"><i
+                        <a href="{{ url('/admin/user/role') }}" title="Back"><button class="btn btn-warning btn-sm"><i
                                     class="fa fa-arrow-left" aria-hidden="true"></i> Back</button></a>
                         <br />
                         <br />
@@ -35,7 +35,7 @@
 
                         {!! Form::model($role, [
                         'method' => 'PATCH',
-                        'url' => ['/admin/role', $role->id],
+                        'url' => ['/admin/user/role', $role->id],
                         'class' => 'form-horizontal',
                         'files' => true
                         ]) !!}

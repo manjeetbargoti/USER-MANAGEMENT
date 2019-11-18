@@ -20,7 +20,7 @@
                 <div class="card">
                     <div class="card-header">Create New Role</div>
                     <div class="card-body">
-                        <a href="{{ url('/admin/role') }}" title="Back"><button class="btn btn-warning btn-sm"><i
+                        <a href="{{ url('/admin/user/role') }}" title="Back"><button class="btn btn-warning btn-sm"><i
                                     class="fa fa-arrow-left" aria-hidden="true"></i> Back</button></a>
                         <br />
                         <br />
@@ -33,7 +33,7 @@
                         </ul>
                         @endif
 
-                        {!! Form::open(['url' => '/admin/role', 'class' => 'form-horizontal', 'files' => true]) !!}
+                        {!! Form::open(['url' => '/admin/user/role', 'class' => 'form-horizontal', 'files' => true]) !!}
 
                         @include ('admin.role.form', ['formMode' => 'create'])
 

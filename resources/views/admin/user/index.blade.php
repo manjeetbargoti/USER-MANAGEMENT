@@ -45,7 +45,9 @@
                                     <tr>
                                         <th>#</th>
                                         <th>Name</th>
+                                        <th>Username</th>
                                         <th>Email</th>
+                                        <th>Phone</th>
                                         <th>Role</th>
                                         <th>Actions</th>
                                     </tr>
@@ -54,23 +56,25 @@
                                     @foreach($user as $item)
                                     <tr>
                                         <td>{{ $loop->iteration }}</td>
-                                        <td>{{ $item->name }}</td>
+                                        <td>{{ $item->title }} {{ $item->first_name }} {{ $item->last_name }}</td>
+                                        <td>{{ $item->username }}</td>
                                         <td>{{ $item->email }}</td>
+                                        <td>{{ $item->phone }}</td>
                                         <td>{{ implode(', ', $item->getRoleNames()->toArray()) }}</td>
                                         <td>
                                             <a href="{{ url('/admin/user/' . $item->id) }}" title="View user"><button
                                                     class="btn btn-info btn-sm"><i class="fa fa-eye"
-                                                        aria-hidden="true"></i> View</button></a>
+                                                        aria-hidden="true"></i></button></a>
                                             <a href="{{ url('/admin/user/' . $item->id . '/edit') }}"
                                                 title="Edit user"><button class="btn btn-primary btn-sm"><i
                                                         class="fa fa-pencil-square-o" aria-hidden="true"></i>
-                                                    Edit</button></a>
+                                                    </button></a>
                                             {!! Form::open([
                                             'method'=>'DELETE',
                                             'url' => ['/admin/user', $item->id],
                                             'style' => 'display:inline'
                                             ]) !!}
-                                            {!! Form::button('<i class="fa fa-trash-o" aria-hidden="true"></i> Delete',
+                                            {!! Form::button('<i class="fa fa-trash-o" aria-hidden="true"></i> ',
                                             array(
                                             'type' => 'submit',
                                             'class' => 'btn btn-danger btn-sm',

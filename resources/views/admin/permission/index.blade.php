@@ -20,7 +20,7 @@
                 <div class="card">
                     <div class="card-header">Permission</div>
                     <div class="card-body">
-                        <a href="{{ url('/admin/permission/create') }}" class="btn btn-success btn-sm"
+                        <a href="{{ url('/admin/user/permission/create') }}" class="btn btn-success btn-sm"
                             title="Add New Permission">
                             <i class="fa fa-plus" aria-hidden="true"></i> Add New
                         </a>
@@ -55,16 +55,16 @@
                                         <td>{{ $loop->iteration }}</td>
                                         <td>{{ $item->name }}</td>
                                         <td>
-                                            <a href="{{ url('/admin/permission/' . $item->id) }}"
+                                            <a href="{{ url('/admin/user/permission/' . $item->id) }}"
                                                 title="View Permission"><button class="btn btn-info btn-sm"><i
                                                         class="fa fa-eye" aria-hidden="true"></i> View</button></a>
-                                            <a href="{{ url('/admin/permission/' . $item->id . '/edit') }}"
+                                            <a href="{{ url('/admin/user/permission/' . $item->id . '/edit') }}"
                                                 title="Edit Permission"><button class="btn btn-primary btn-sm"><i
                                                         class="fa fa-pencil-square-o" aria-hidden="true"></i>
                                                     Edit</button></a>
                                             {!! Form::open([
                                             'method'=>'DELETE',
-                                            'url' => ['/admin/permission', $item->id],
+                                            'url' => ['/admin/user/permission', $item->id],
                                             'style' => 'display:inline'
                                             ]) !!}
                                             {!! Form::button('<i class="fa fa-trash-o" aria-hidden="true"></i> Delete',

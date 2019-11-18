@@ -50,7 +50,11 @@
                                     </tr>
                                     <tr>
                                         <th> Name </th>
-                                        <td> {{ $user->name }} </td>
+                                        <td>{{ $user->title }} {{ $user->first_name }} {{ $user->last_name }} ({{ $user->username }})</td>
+                                    </tr>
+                                    <tr>
+                                        <th> Phone </th>
+                                        <td> {{ $user->phone }} </td>
                                     </tr>
                                     <tr>
                                         <th> Email </th>
