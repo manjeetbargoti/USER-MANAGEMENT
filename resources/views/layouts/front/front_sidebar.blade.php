@@ -1,7 +1,7 @@
 <!-- Sidebar Menu -->
 <nav id="sidebar">
     <div id="dismiss">
-        <i class="fas fa-arrow-left"></i>
+        <i class="fa fa-arrow-left"></i>
     </div>
 
     <div class="sidebar-header">

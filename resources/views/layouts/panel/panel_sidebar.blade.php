@@ -12,15 +12,6 @@
                             src="{{ asset('admin/img/admin.jpg') }}">
                         <p class="text-white user-info">{{ Auth::user()->first_name }}</p>
                     </a>
-                    <!-- <div class="search_bar col-lg-12">
-                        <div class="input-group">
-                            <input type="search" class="form-control " placeholder="search">
-                            <span class="input-group-btn">
-                                <button class="btn" type="button"><span class="fa fa-search">
-                                    </span></button>
-                            </span>
-                        </div>
-                    </div> -->
                 </div>
             </div>
             <!-- #menu -->
@@ -31,6 +22,7 @@
                         <span class="link-title menu_hide">&nbsp;Dashboard</span>
                     </a>
                 </li>
+                @hasanyrole('Super Admin')
                 <li class="dropdown_menu {{ (request()->is('admin/user*')) ? 'active':'' }}">
                     <a href="{{ url('/admin/user') }}">
                         <i class="fa fa-users"></i>
@@ -52,6 +44,32 @@
                             <a href="{{ url('admin/user/permission') }}">
                                 <i class="fa fa-angle-right"></i>
                                 <span class="link-title"> &nbsp; User Permissions</span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                @endrole
+                <li class="dropdown_menu {{ (request()->is('admin/posts*')) ? 'active':'' }}">
+                    <a href="{{ url('/admin/posts') }}">
+                        <i class="fa fa-file-text-o"></i>
+                        <span class="link-title menu_hide">&nbsp; Post Management</span>
+                        <span class="fa arrow menu_hide"></span>
+                    </a>
+                    <ul>
+                        <li class="{{ (request()->is('admin/posts')) ? 'active':'' }}">
+                            <a href="{{ url('admin/posts') }}">
+                                <i class="fa fa-angle-right"></i> &nbsp; Posts
+                            </a>
+                        </li>
+                        <li class="{{ (request()->is('admin/posts/create')) ? 'active':'' }}">
+                            <a href="{{ url('admin/posts/create') }}">
+                                <i class="fa fa-angle-right"></i> &nbsp; Add New
+                            </a>
+                        </li>
+                        <li class="{{ (request()->is('admin/posts/category')) ? 'active':'' }}">
+                            <a href="{{ url('admin/posts/category') }}">
+                                <i class="fa fa-angle-right"></i>
+                                <span class="link-title"> &nbsp; Post Category</span>
                             </a>
                         </li>
                     </ul>

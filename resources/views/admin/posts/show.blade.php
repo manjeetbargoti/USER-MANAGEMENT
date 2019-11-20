@@ -7,7 +7,7 @@
             <div class="col-6">
                 <h4 class="m-t-5">
                     <i class="fa fa-home"></i>
-                    Users
+                    Create New Permission
                 </h4>
             </div>
         </div>
@@ -18,23 +18,23 @@
         <div class="row">
             <div class="col-md-9">
                 <div class="card">
-                    <div class="card-header">User ({{ $user->first_name }} {{ $user->last_name }})</div>
+                    <div class="card-header">Post {{ $post->id }}</div>
                     <div class="card-body">
 
-                        <a href="{{ url('/admin/user') }}" title="Back"><button class="btn btn-warning btn-sm"><i
+                        <a href="{{ url('/admin/posts') }}" title="Back"><button class="btn btn-warning btn-sm"><i
                                     class="fa fa-arrow-left" aria-hidden="true"></i> Back</button></a>
-                        <a href="{{ url('/admin/user/' . $user->id . '/edit') }}" title="Edit user"><button
+                        <a href="{{ url('/admin/posts/' . $post->id . '/edit') }}" title="Edit Post"><button
                                 class="btn btn-primary btn-sm"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>
                                 Edit</button></a>
                         {!! Form::open([
                         'method'=>'DELETE',
-                        'url' => ['admin/user', $user->id],
+                        'url' => ['admin/posts', $post->id],
                         'style' => 'display:inline'
                         ]) !!}
                         {!! Form::button('<i class="fa fa-trash-o" aria-hidden="true"></i> Delete', array(
                         'type' => 'submit',
                         'class' => 'btn btn-danger btn-sm',
-                        'title' => 'Delete user',
+                        'title' => 'Delete Post',
                         'onclick'=>'return confirm("Confirm delete?")'
                         ))!!}
                         {!! Form::close() !!}
@@ -46,30 +46,20 @@
                                 <tbody>
                                     <tr>
                                         <th>ID</th>
-                                        <td>{{ $user->id }}</td>
+                                        <td>{{ $post->id }}</td>
                                     </tr>
                                     <tr>
-                                        <th> Name </th>
-                                        <td>{{ $user->title }} {{ $user->first_name }} {{ $user->last_name }} ({{ $user->username }})</td>
+                                        <th> Title </th>
+                                        <td> {{ $post->title }} </td>
                                     </tr>
                                     <tr>
-                                        <th> Phone </th>
-                                        <td> {{ $user->phone }} </td>
+                                        <th> Content </th>
+                                        <td> {{ $post->content }} </td>
                                     </tr>
                                     <tr>
-                                        <th> Email </th>
-                                        <td> {{ $user->email }} </td>
+                                        <th> Is Permission </th>
+                                        <td> {{ $post->is_permission }} </td>
                                     </tr>
-                                    <tr>
-                                        <th> Role </th>
-                                        <td> {{ implode(', ', $user->getRoleNames()->toArray()) }} </td>
-                                    </tr>
-                                    @if($user->lawyerlevel)
-                                    <tr>
-                                        <th> Lawyer Level </th>
-                                        <td> {{ $user->lawyerlevel }} </td>
-                                    </tr>
-                                    @endif
                                 </tbody>
                             </table>
                         </div>

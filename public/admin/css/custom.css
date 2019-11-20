@@ -131,7 +131,7 @@ button, .btn {
 #top .navbar {
   padding: 0;
   margin-bottom: 0;
-  background: #02165d; }
+  background: #1b2d6d; }
 
 #top .topnav {
   padding: 0 !important;
@@ -170,23 +170,25 @@ button, .btn {
   background: #7a7a7a; }
 
 #menu > li.active {
-  background: #02165d !important; }
+  background: #1b2d6d !important; }
 
 #menu li.active a {
   color: #fff; }
 
 #menu li.active > ul {
-  background: #7a7a7a !important; }
+  /* background: #35457d !important;  */
+  background: #6888fc;
+}
 
 #menu li.active ul li.active > a {
   color: #fff;
-  background-color: #9e7537; }
+  background-color: #3660fb; }
 
 #menu li:hover {
-  background: #3a3a3a; }
+  background: #35457d; }
 
 #menu li ul li:hover {
-  background: #3a3a3a; }
+  background: #35457d; }
 
 #menu li.active ul li:hover > a {
   color: #fff; }
@@ -612,7 +614,7 @@ button, .btn {
     float: left;
     left: auto;
     height: auto;
-    background-color: #4E4C4C; }
+    background-color: #02165d; }
   .sidebar-left-hidden #left {
     width: 0;
     height: 0;

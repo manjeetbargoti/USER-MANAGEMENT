@@ -21,7 +21,7 @@ class UserController extends Controller
         $perPage = 25;
 
         if (!empty($keyword)) {
-            $user = User::latest()->paginate($perPage);
+            $user = User::where('first_name', 'LIKE', "%$keyword%")->orWhere('last_name', 'LIKE', "%$keyword%")->orWhere('email', 'LIKE', "%$keyword%")->orWhere('phone', 'LIKE', "%$keyword%")->orWhere('username', 'LIKE', "%$keyword%")->latest()->paginate($perPage);
         } else {
             $user = User::latest()->paginate($perPage);
         }
@@ -51,11 +51,11 @@ class UserController extends Controller
     public function store(Request $request)
     {
         
-        $requestData = $request->all();
-        // $requestData = $request->except('roles');
+        // $requestData = $request->all();
+        $requestData = $request->except('roles');
         $roles = $request->roles;
 
-        dd($requestData);
+        // dd($requestData);
         
         $user = User::create($requestData);
         $user->assignRole($roles);
@@ -103,7 +103,7 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        
+
         $requestData = $request->except('roles');
         $roles = $request->roles;
         
@@ -134,7 +134,6 @@ class UserController extends Controller
         
         if($request->isMethod('post')){
 
-            // $requestData = $request->all();
             $requestData = $request->except('roles');
             $roles = $request->roles;
 

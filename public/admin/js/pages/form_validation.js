@@ -119,14 +119,42 @@ $(document).ready(function() {
     $('#form_inline_validator').bootstrapValidator({
         framework: 'bootstrap',
         fields: {
-            Name3: {
+            roles: {
                 validators: {
                     notEmpty: {
-                        message: 'Enter your name'
+                        message: 'Please select a role'
                     }
                 }
             },
-            Email3: {
+            title: {
+                validators: {
+                    notEmpty: {
+                        message: 'Please select title'
+                    }
+                }
+            },
+            first_name: {
+                validators: {
+                    notEmpty: {
+                        message: 'Enter your first name'
+                    }
+                }
+            },
+            username: {
+                validators: {
+                    notEmpty: {
+                        message: 'Enter your username'
+                    }
+                }
+            },
+            phone: {
+                validators: {
+                    notEmpty: {
+                        message: 'The phone number is required'
+                    }
+                }
+            },
+            email: {
                 validators: {
                     notEmpty: {
                         message: 'The email address is required'
@@ -137,14 +165,14 @@ $(document).ready(function() {
                     }
                 }
             },
-            Password3: {
+            password: {
                 validators: {
                     notEmpty: {
                         message: 'Please provide a password'
                     }
                 }
             },
-            Confirmpassword3: {
+            confirmpassword: {
                 validators: {
                     notEmpty: {
                         message: 'The confirm password is required and can\'t be empty.'

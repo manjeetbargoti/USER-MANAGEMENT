@@ -18,7 +18,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'title','first_name','last_name','username','phone','email', 'password','remember_token',
+        'title','first_name','last_name','username','phone','email','lawyerlevel', 'password','remember_token',
     ];
 
     /**
@@ -45,5 +45,10 @@ class User extends Authenticatable
         {
             $this->attributes['password'] = app('hash')->needsRehash($value)?Hash::make($value):$value;
         }
+    }
+
+    public function posts()
+    {
+        return $this->hasMany(Post::class);
     }
 }

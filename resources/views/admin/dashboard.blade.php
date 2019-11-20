@@ -32,7 +32,7 @@
                                 </div>
                                 <div class="col-lg-7 col-7 icon_padd_right">
                                     <div class="float-right cards_content">
-                                        <span class="number_val" id="sales_count"></span><i
+                                        <span class="number_val" id="sales_count">$ 29</span><i
                                             class="fa fa-long-arrow-up fa-2x"></i>
                                         <br />
                                         <span class="card_description">Sales</span>
@@ -54,7 +54,7 @@
                                 </div>
                                 <div class="col-lg-7 col-7 icon_padd_right">
                                     <div class="float-right cards_content">
-                                        <span class="number_val" id="visitors_count"></span><i
+                                        <span class="number_val" id="visitors_count">1901</span><i
                                             class="fa fa-long-arrow-up fa-2x"></i>
                                         <br />
                                         <span class="card_description">Visitors</span>
@@ -76,8 +76,8 @@
                                 </div>
                                 <div class="col-lg-7 col-7 icon_padd_right">
                                     <div class="float-right cards_content">
-                                        <span class="number_val" id="revenue_count"></span><i
-                                            class="fa fa-long-arrow-up fa-2x"></i>
+                                        <span class="number_val" id="revenue_count">$ 15</span>
+                                        <i class="fa fa-long-arrow-up fa-2x"></i>
                                         <br />
                                         <span class="card_description">Revenue</span>
                                     </div>

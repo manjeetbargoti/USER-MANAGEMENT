@@ -4,7 +4,7 @@
     <!-- .navbar -->
     <nav class="navbar navbar-static-top">
         <div class="container-fluid m-0">
-            <a class="navbar-brand mr-0" href="index.html">
+            <a class="navbar-brand mr-0" href="{{ route('dashboard') }}">
                 <h4 class="text-white"><img src="{{ asset('admin/img/logow.png') }}" class="admin_img" alt="logo"> {{ config('app.name') }}</h4>
             </a>
             <div class="menu mr-sm-auto">

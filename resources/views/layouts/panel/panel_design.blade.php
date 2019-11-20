@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <title>Dashboard | {{ config('app.name') }}</title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <link rel="shortcut icon" href="img/logo1.ico" />
+    <link rel="shortcut icon" href="favicon.png" />
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
@@ -25,12 +26,37 @@
     <link rel="stylesheet" href="{{ asset('admin/vendors/izitoast/css/iziToast.min.css') }}" />
     <link rel="stylesheet" href="{{ asset('admin/vendors/switchery/css/switchery.min.css') }}" />
     <link rel="stylesheet" href="{{ asset('admin/css/pages/new_dashboard.css') }}" />
-    <link rel="stylesheet" href="#" id="skin_change" />
+    <link rel="stylesheet" href="{{ asset('admin/css/pages/form_layouts.css') }}" />
+    <link rel="stylesheet" href="{{ asset('admin/vendors/inputlimiter/css/jquery.inputlimiter.css') }}" />
+    <link rel="stylesheet" href="{{ asset('admin/vendors/chosen/css/chosen.min.css') }}" />
+    <link rel="stylesheet"
+        href="{{ asset('admin/vendors/bootstrap-colorpicker/css/bootstrap-colorpicker.min.css') }}" />
+    <link rel="stylesheet" href="{{ asset('admin/vendors/jquery-tagsinput/css/jquery.tagsinput.min.css') }}" />
+    <link rel="stylesheet" href="{{ asset('admin/vendors/daterangepicker/css/daterangepicker.css') }}" />
+    <link rel="stylesheet" href="{{ asset('admin/vendors/datepicker/css/bootstrap-datepicker.min.css') }}" />
+    <link rel="stylesheet" href="{{ asset('admin/vendors/bootstrap-timepicker/css/bootstrap-timepicker.min.css') }}" />
+    <link rel="stylesheet" href="{{ asset('admin/vendors/bootstrap-switch/css/bootstrap-switch.min.css') }}" />
+    <link rel="stylesheet" href="{{ asset('admin/vendors/jasny-bootstrap/css/jasny-bootstrap.min.css') }}" />
+    <link rel="stylesheet" href="{{ asset('admin/vendors/multiselect/css/multi-select.css') }}" />
+    <link rel="stylesheet" href="{{ asset('admin/css/pages/form_elements.css') }}" />
     <!-- /.End of Global Styles -->
-    <!-- Login Page Style -->
-   
-    <!-- /.End of login page style -->
+    <!--Plugin styles-->
+    <link rel="stylesheet" href="{{ asset('admin/vendors/jquery-validation-engine/css/validationEngine.jquery.css') }}" />
+    <link rel="stylesheet" href="{{ asset('admin/vendors/datepicker/css/bootstrap-datepicker.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('admin/vendors/datetimepicker/css/DateTimePicker.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('admin/vendors/bootstrapvalidator/css/bootstrapValidator.min.css') }}" />
+    <!--End of plugin styles-->
+    <!--Page level styles-->
+    <link rel="stylesheet" href="{{ asset('admin/css/pages/form_validations.css') }}" />
+    <link rel="stylesheet" href="{{ asset('admin/vendors/multiselect/css/multi-select.css') }}"/>
+    <!-- end of page level styles -->
+    <link rel="stylesheet" href="{{ asset('admin/vendors/checkbox_css/css/checkbox.min.css') }}" />
+    <link rel="stylesheet" href="{{ asset('admin/css/pages/radio_checkbox.css') }}" />
+    <link rel="stylesheet" href="{{ asset('admin/vendors/select2/css/select2.min.css') }}" />
+
+
 </head>
+
 <body>
 
     <!-- Pre-Loader Starts here -->
@@ -57,29 +83,30 @@
     <!-- Body wrap start here -->
     <div id="wrap">
 
-    @include('layouts.panel.panel_header')
+        @include('layouts.panel.panel_header')
 
-    <!-- Wrapper Start here -->
-    <div class="wrapper">
-        @include('layouts.panel.panel_sidebar')
+        <!-- Wrapper Start here -->
+        <div class="wrapper">
+            @include('layouts.panel.panel_sidebar')
 
-        <!-- Content Section start here -->
-        <div id="content" class="bg-container">
-            @yield('content')
+            <!-- Content Section start here -->
+            <div id="content" class="bg-container">
+                @yield('content')
+            </div>
+            <!-- /.COntent section end here -->
         </div>
-        <!-- /.COntent section end here -->
-    </div>
-    <!-- /.Wrapper ends here -->
+        <!-- /.Wrapper ends here -->
 
-    @include('layouts.panel.panel_footer')
+        @include('layouts.panel.panel_footer')
 
     </div>
     <!-- /.Body wrap ends here -->
-    
+
     <!-- Scripts -->
     <!-- global scripts-->
     <script src="{{ asset('admin/js/components.js') }} "></script>
     <script src="{{ asset('admin/js/custom.js') }} "></script>
+    <script src="{{ asset('admin/js/popper.min.js') }}"></script>
     <!-- global scripts end-->
     <script src="{{ asset('admin/vendors/raphael/js/raphael.min.js') }}"></script>
     <script src="{{ asset('admin/vendors/d3/js/d3.min.js') }}"></script>
@@ -101,5 +128,23 @@
     <script src="{{ asset('admin/vendors/izitoast/js/iziToast.min.js') }}"></script>
     <script src="{{ asset('admin/js/pages/izi_toastr.js') }}"></script>
 
-    </body>
+    <!--Plugin scripts-->
+    <script src="{{ asset('admin/vendors/jquery-validation-engine/js/jquery.validationEngine.js') }}"></script>
+    <script src="{{ asset('admin/vendors/jquery-validation-engine/js/jquery.validationEngine-en.js') }}"></script>
+    <script src="{{ asset('admin/vendors/jquery-validation/js/jquery.validate.js') }}"></script>
+    <script src="{{ asset('admin/vendors/datepicker/js/bootstrap-datepicker.min.js') }}"></script>
+    <script src="{{ asset('admin/vendors/datetimepicker/js/DateTimePicker.min.js') }}"></script>
+    <script src="{{ asset('admin/vendors/bootstrapvalidator/js/bootstrapValidator.min.js') }}"></script>
+    <script src="{{ asset('admin/vendors/moment/js/moment.min.js') }}"></script>
+    <script src="{{ asset('admin/vendors/multiselect/js/jquery.multi-select.js') }}"></script>
+    <script src="{{ asset('admin/js/pages/radio_checkbox.js') }}"></script>
+    <!--End of plugin scripts-->
+    <!--Page level scripts-->
+    <script src="{{ asset('admin/js/form.js') }}"></script>
+    <script src="{{ asset('admin/js/pages/form_validation.js') }}"></script>
+    <!-- end page level scripts -->
+    <script src="{{ asset('admin/vendors/select2/js/select2.js') }}"></script>
+
+</body>
+
 </html>
