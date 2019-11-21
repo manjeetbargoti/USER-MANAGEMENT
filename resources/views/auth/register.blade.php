@@ -36,9 +36,10 @@ body {
                                     <div class="col-sm-3 col-12">
                                         <label class="custom-control custom-radio">
                                             <input type="radio" id="If{{ $roles->name }}" name="roles"
-                                                onclick="javascript:userTypeCheck();" value="{{ $roles->name }}"
-                                                class="custom-control-input form-control @error('roles') is-invalid @enderror"
-                                                >
+                                                onclick="javascript:userTypeCheck();" @if($roles->name == 'Client')
+                                            checked @endif value="{{ $roles->name }}"
+                                            class="custom-control-input form-control @error('roles') is-invalid
+                                            @enderror">
                                             <span class="custom-control-indicator"></span>
                                             <a class="custom-control-description">{{ $roles->name }}</a>
                                         </label>
@@ -52,25 +53,7 @@ body {
                                 </div>
                             </div>
 
-                            <div class="client_form agentForm d-block" id="ifLawyerCheck" style="display:block;">
-                                <!-- <div class="form-group row" id="" >
-                                    <div class="col-sm-12">
-                                        <label for="Lawyer Experience Level"
-                                            class="col-form-label">{{ __('Lawyer Experience Level') }}</label>
-                                        <div class="input-group">
-                                            <span class="input-group-addon">
-                                                <i class="fa fa-get-pocket text-primary"></i>
-                                            </span>
-                                            <select name="lawyerlevel" id="lawyerlevel"
-                                                class="form-control @error('lawyerlevel') is-invalid @enderror"
-                                                value="{{ old('roles') }}" required>
-                                                <option value="Specialist Attorney">Specialist Attorny</option>
-                                                <option value="Attorney">Attorny</option>
-                                                <option value="Junior Attorney">Junior Attorny</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                </div> -->
+                            <div class="client_form agentForm" id="IsClientAgent" style="display:block;">
                                 <div class="form-group row">
                                     <!-- Title field -->
                                     <div class="col-sm-6">
@@ -259,6 +242,216 @@ body {
                                     </div>
                                 </div>
                             </div>
+
+                            <div class="lawyerform" id="IsLawyer" style="display:none;">
+                                <div class="form-group row">
+                                    <!-- Lawyer Exp select field -->
+                                    <div class="col-sm-6">
+                                        <label for="Lawyer Type"
+                                            class="col-form-label">{{ __('Lawyer Type') }}</label>
+                                        <div class="input-group">
+                                            <span class="input-group-addon">
+                                                <i class="fa fa-get-pocket text-primary"></i>
+                                            </span>
+                                            <select name="lawyerlevel" id="lawyerlevel"
+                                                class="form-control @error('lawyerlevel') is-invalid @enderror"
+                                                value="{{ old('lawyerlevel') }}" required>
+                                                <option value=" "> -- Select Lawyer Type -- </option>
+                                                <option value="Specialist Attorney">Specialist Attorny</option>
+                                                <option value="Attorney">Attorny</option>
+                                                <option value="Junior Attorney">Junior Attorny</option>
+                                            </select>
+
+                                            @error('lawyerlevel')
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                            @enderror
+                                        </div>
+                                    </div>
+                                    <!-- /.Lawyer Exp select field -->
+                                    <!-- Title field -->
+                                    <div class="col-sm-6">
+                                        <label for="title" class="col-form-label">{{ __('Title *') }}</label>
+                                        <div class="input-group">
+                                            <span class="input-group-addon"> <i
+                                                    class="fa fa-get-pocket text-primary"></i>
+                                            </span>
+                                            <select type="text"
+                                                class="form-control @error('title') is-invalid @enderror" name="title"
+                                                value="{{ old('title') }}" required id="title">
+                                                <option value=" "> -- Select Title -- </option>
+                                                <option value="Mr.">Mr.</option>
+                                                <option value="Ms.">Ms.</option>
+                                                <option value="Mrs.">Mrs.</option>
+                                            </select>
+
+                                            @error('title')
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                            @enderror
+                                        </div>
+                                    </div>
+                                    <!-- /.Title field -->
+                                </div>
+                                <div class="form-group row">
+                                    <!-- First Name field -->
+                                    <div class="col-sm-6">
+                                        <label for="first name" class="col-form-label">{{ __('First Name *') }}</label>
+                                        <div class="input-group">
+                                            <span class="input-group-addon"> <i class="fa fa-user text-primary"></i>
+                                            </span>
+                                            <input type="text"
+                                                class="form-control @error('first_name') is-invalid @enderror"
+                                                name="first_name" value="{{ old('first_name') }}" required
+                                                autocomplete="first_name" id="first_name" placeholder="First Name">
+
+                                            @error('first_name')
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                            @enderror
+                                        </div>
+                                    </div>
+                                    <!-- /.First Name field -->
+                                    <!-- Last Name field -->
+                                    <div class="col-sm-6">
+                                        <label for="last name" class="col-form-label">{{ __('Last Name *') }}</label>
+                                        <div class="input-group">
+                                            <span class="input-group-addon"> <i
+                                                    class="fa fa-user-plus text-primary"></i>
+                                            </span>
+                                            <input type="text"
+                                                class="form-control @error('last_name') is-invalid @enderror"
+                                                name="last_name" value="{{ old('last_name') }}" required
+                                                autocomplete="last_name" id="last_name" placeholder="Last Name">
+
+                                            @error('last_name')
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                            @enderror
+                                        </div>
+                                    </div>
+                                    <!-- /.Last Name field -->
+                                </div>
+                                <div class="form-group row">
+                                    <!-- Email Address field -->
+                                    <div class="col-sm-6">
+                                        <label for="email" class="col-form-label">{{ __('Email Address *') }}</label>
+                                        <div class="input-group">
+                                            <span class="input-group-addon">
+                                                <i class="fa fa-envelope text-primary"></i>
+                                            </span>
+                                            <input type="email" placeholder="Email Address" name="email" id="email"
+                                                class="form-control @error('email') is-invalid @enderror"
+                                                value="{{ old('email') }}" required autocomplete="email" />
+
+                                            @error('email')
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                            @enderror
+                                        </div>
+                                    </div>
+                                    <!-- /.Email Address field -->
+                                    <!-- Phone number field -->
+                                    <div class="col-sm-6">
+                                        <label for="phone" class="col-form-label">{{ __('Phone *') }}</label>
+                                        <div class="input-group">
+                                            <span class="input-group-addon">
+                                                <i class="fa fa-phone text-primary"></i>
+                                            </span>
+                                            <input type="tel" id="phone" placeholder="Phone Number" name="phone"
+                                                class="form-control @error('phone') is-invalid @enderror"
+                                                value="{{ old('phone') }}" required autocomplete="phone" />
+
+                                            @error('phone')
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                            @enderror
+                                        </div>
+                                    </div>
+                                    <!-- /.Phone number field -->
+                                </div>
+                                <div class="form-group row">
+                                    <!-- Area of Practice select field -->
+                                    <div class="col-sm-6">
+                                        <label for="Area of Practice"
+                                            class="col-form-label">{{ __('Area of Practice') }}</label>
+                                        <div class="input-group">
+                                            <span class="input-group-addon">
+                                                <i class="fa fa-get-pocket text-primary"></i>
+                                            </span>
+                                            <select name="areaofprectice" id="AreaPrectice"
+                                                class="form-control @error('areaofprectice') is-invalid @enderror"
+                                                value="{{ old('areaofprectice') }}" required>
+                                                <option value=" "> -- Select Area of Prectice -- </option>
+                                                <option value="Specialist Attorney">Specialist Attorny</option>
+                                                <option value="Attorney">Attorny</option>
+                                                <option value="Junior Attorney">Junior Attorny</option>
+                                            </select>
+
+                                            @error('areaofprectice')
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                            @enderror
+                                        </div>
+                                    </div>
+                                    <!-- /.Area of Practice Select Field -->
+                                    <!-- Work Experience Select field -->
+                                    <div class="col-sm-6">
+                                        <label for="Work Experience"
+                                            class="col-form-label">{{ __('Work Experience * (in years)') }}</label>
+                                        <div class="input-group">
+                                            <span class="input-group-addon">
+                                                <i class="fa fa-get-pocket text-primary"></i>
+                                            </span>
+                                            <select name="work_exp" id="WorkExperience"
+                                                class="form-control @error('work_exp') is-invalid @enderror"
+                                                value="{{ old('work_exp') }}" required>
+                                                <option value=" "> -- Work Experience -- </option>
+                                                <option value="5 years">5 years</option>
+                                                <option value="5+ years">5+ years</option>
+                                                <option value="8 years">8 years</option>
+                                                <option value="8+ years">8+ years</option>
+                                                <option value="10 years">10 years</option>
+                                                <option value="10+ years">10+ years</option>
+                                            </select>
+
+                                            @error('work_exp')
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                            @enderror
+                                        </div>
+                                    </div>
+                                    <!-- /.Confirm Password field -->
+                                </div>
+
+                                <div class="form-group row">
+                                    <div class="col-sm-9">
+                                        <label class="custom-control custom-checkbox">
+                                            <input type="checkbox" class="custom-control-input form-control"
+                                                name="terms" id="Terms">
+                                            <span class="custom-control-indicator"></span>
+                                            <span href="#" class="custom-control-description">I agree with the <a
+                                                    href="#" target="_blank" style="text-decoration:underline;">Terms and
+                                                    Conditions</a>.</span>
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <div class="col-sm-12">
+                                        <button type="reset" class="btn btn-warning btn-lg pull-left">Reset</button>
+                                        <input type="submit" value="Submit Documents" class="btn btn-success btn-lg pull-right" />
+
+                                    </div>
+                                </div>
+                            </div>
                             <div class="row">
                                 <div class="col-sm-9">
                                     <label class="col-form-label">Already have an account?</label> <a
@@ -275,6 +468,19 @@ body {
     </div>
 </div>
 
-
+<script>
+function userTypeCheck() {
+    if (document.getElementById('IfClient').checked) {
+        document.getElementById('IsLawyer').style.display = 'none';
+        document.getElementById('IsClientAgent').style.display = 'block';
+    } else if (document.getElementById('IfLawyer').checked) {
+        document.getElementById('IsClientAgent').style.display = 'none';
+        document.getElementById('IsLawyer').style.display = 'block';
+    } else if (document.getElementById('IfAgent').checked) {
+        document.getElementById('IsLawyer').style.display = 'none';
+        document.getElementById('IsClientAgent').style.display = 'block';
+    }
+}
+</script>
 
 @endsection

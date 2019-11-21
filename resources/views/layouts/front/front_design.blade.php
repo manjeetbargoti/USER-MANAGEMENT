@@ -110,13 +110,7 @@ z-index: 999999">
         });
     });
     </script>
-    <script>
-    function userTypeCheck() {
-        if (document.getElementById('IfLawyer').checked) {
-            document.getElementById('IfLawyerCheck').style.display = 'none';
-        } else document.getElementById('IfLawyerCheck').style.display = 'block';
-    }
-    </script>
+    
 </body>
 
 </html>
